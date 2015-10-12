@@ -8,8 +8,6 @@ import com.emrekoca.services.customers.CustomerNotFoundException;
 
 public interface CallHandlingService 
 {
-	// DO NOT IMPLEMENT THIS INTERFACE UNTIL A LATER CHAPTER!
-	
 	/**
 	 * Records a call with the customer management service, and also records
 	 * any actions in the diary service
