@@ -3,4 +3,8 @@
 <beans>
 	<bean id="customerService" class="com.emrekoca.services.customers.CustomerManagementMockImpl"></bean>
 	<bean id="diaryService" class="com.emrekoca.services.diary.DiaryManagementServiceMockImpl"></bean>
+	<bean id="callHandlingService" class="com.emrekoca.services.calls.CallHandlingMockImpl">
+		<constructor-arg ref="customerService"/>
+		<constructor-arg ref="diaryService"/>
+	</bean>
 </beans>
