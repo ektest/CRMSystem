@@ -21,6 +21,10 @@ public class CallHandlingMockImpl implements CallHandlingService {
 	@Override
 	public void recordCall(String customerId, Call newCall, Collection<Action> actions)
 			throws CustomerNotFoundException {
+		customerService.recordCall(customerId, newCall);
+		for (Action action : actions) {
+			diaryService.recordAction(action);
+		}
 	}
 
 }
