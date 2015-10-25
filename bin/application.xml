@@ -25,6 +25,7 @@
 	</bean>
 
 	<!--  Service Beans -->
+<!--
 	<bean id="customerService" class="com.emrekoca.services.customers.CustomerManagementServiceProductionImpl">
 		<constructor-arg ref="customerDao"/>
 	</bean>
@@ -37,5 +38,5 @@
 		<constructor-arg ref="customerService"/>
 		<constructor-arg ref="diaryService"/>	
 	</bean>
-
+-->
 </beans>
