@@ -2,10 +2,22 @@ package com.emrekoca.dataaccess;
 
 import java.util.List;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
 
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
+
+	private JdbcTemplate jdbc;
+
+	public CustomerDaoJdbcTemplateImpl(JdbcTemplate jdbc){
+		this.jdbc = jdbc;
+	}
+
+	private void createTables(){
+		
+	}
 
 	@Override
 	public void create(Customer customer) {
