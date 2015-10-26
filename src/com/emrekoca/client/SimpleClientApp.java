@@ -8,7 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.emrekoca.domain.Action;
 import com.emrekoca.domain.Call;
+import com.emrekoca.domain.Customer;
 import com.emrekoca.services.calls.CallHandlingService;
+import com.emrekoca.services.customers.CustomerManagementService;
 import com.emrekoca.services.customers.CustomerNotFoundException;
 import com.emrekoca.services.diary.DiaryManagementService;
 
@@ -20,6 +22,8 @@ public class SimpleClientApp {
 		// Another way to wire bean if there is only one configuration of that class in application.xmll
 		//DiaryManagementService diaryService = container.getBean(DiaryManagementService.class);
 		CallHandlingService callService = container.getBean(CallHandlingService.class);
+		CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
+		customerService.newCustomer(new Customer("AB123", "Apple", "test@test.com", "1234567890", "hello world"));
 		Action action1 = new Action("Call back me!", new GregorianCalendar(2016, 0, 0), "ek");
 		Action action2 = new Action("I hate you!", new GregorianCalendar(2018, 0, 0), "ek");
 		List<Action> list = new ArrayList<Action>();
