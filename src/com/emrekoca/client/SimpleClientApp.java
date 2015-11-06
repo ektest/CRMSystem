@@ -24,8 +24,8 @@ public class SimpleClientApp {
 		CallHandlingService callService = container.getBean(CallHandlingService.class);
 		CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
 		customerService.newCustomer(new Customer("AB123", "Apple", "test@test.com", "1234567890", "hello world"));
-		Action action1 = new Action("Call back me!", new GregorianCalendar(2016, 0, 0), "ek");
-		Action action2 = new Action("I hate you!", new GregorianCalendar(2018, 0, 0), "ek");
+		Action action1 = new Action("Call back me!", new GregorianCalendar(2016, 0, 0), "AB123");
+		Action action2 = new Action("I hate you!", new GregorianCalendar(2018, 0, 0), "AB123");
 		List<Action> list = new ArrayList<Action>();
 		list.add(action1);
 		list.add(action2);
@@ -40,5 +40,5 @@ public class SimpleClientApp {
 			System.out.println(action);
 		}
 		container.close();
-	}
+	} 
 }
