@@ -2,12 +2,15 @@ package com.emrekoca.services.calls;
 
 import java.util.Collection;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.emrekoca.domain.Action;
 import com.emrekoca.domain.Call;
 import com.emrekoca.services.customers.CustomerManagementService;
 import com.emrekoca.services.customers.CustomerNotFoundException;
 import com.emrekoca.services.diary.DiaryManagementService;
 
+@Transactional
 public class CallHandlingServiceImpl implements CallHandlingService 
 {
 	private CustomerManagementService customerService;

@@ -2,11 +2,14 @@ package com.emrekoca.services.customers;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.emrekoca.dataaccess.CustomerDao;
 import com.emrekoca.dataaccess.RecordNotFoundException;
 import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
 
+@Transactional
 public class CustomerManagementServiceProductionImpl implements
 		CustomerManagementService 
 {
