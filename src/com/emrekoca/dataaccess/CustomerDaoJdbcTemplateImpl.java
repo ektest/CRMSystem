@@ -5,14 +5,19 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
 
+@Repository
 public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 
 	private static final String INSERT_CALL_SQL = "INSERT INTO TBL_CALL(NOTES, TIME_AND_DATE, CUSTOMER_ID) VALUES (?, ?, ?)";
@@ -22,12 +27,15 @@ public class CustomerDaoJdbcTemplateImpl implements CustomerDao {
 	private static final String INSERT_CUSTOMER_SQL = "INSERT INTO CUSTOMER (CUSTOMER_ID, COMPANY_NAME, EMAIL, TELEPHONE, NOTES) VALUES (?,?,?,?,?)";
 	private static final String CREATE_CALL_TABLE_SQL = "CREATE TABLE TBL_CALL(NOTES VARCHAR(255), TIME_AND_DATE DATE, CUSTOMER_ID VARCHAR(60))";
 	private static final String CREATE_CUSTOMER_TABLE_SQL = "CREATE TABLE CUSTOMER(CUSTOMER_ID VARCHAR(60), COMPANY_NAME VARCHAR(50), EMAIL VARCHAR(50), TELEPHONE VARCHAR(20), NOTES VARCHAR(255))";
+
+	@Autowired
 	private JdbcTemplate template;
 
-	public CustomerDaoJdbcTemplateImpl(JdbcTemplate template) {
+	public CustomerDaoJdbcTemplateImpl (JdbcTemplate template){
 		this.template = template;
 	}
 
+	@PostConstruct
 	private void createTables() {
 		try {
 			template.update(CREATE_CUSTOMER_TABLE_SQL);

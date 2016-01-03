@@ -2,6 +2,8 @@ package com.emrekoca.services.customers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.emrekoca.dataaccess.CustomerDao;
@@ -10,17 +12,18 @@ import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
 
 @Transactional
+@Service
 public class CustomerManagementServiceProductionImpl implements
 		CustomerManagementService 
 {
 
+	@Autowired
 	private CustomerDao dao;
-	
-	public CustomerManagementServiceProductionImpl(CustomerDao dao)
-	{
+
+	public CustomerManagementServiceProductionImpl (CustomerDao dao){
 		this.dao = dao;
 	}
-	
+
 	@Override
 	public void newCustomer(Customer newCustomer) 
 	{

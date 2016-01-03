@@ -47,8 +47,6 @@
 	</bean>
 
 	<bean id="performanceTimingAdvice" class="com.emrekoca.advice.PerformTimingAdvice"/>
-	<!-- Tells spring search for AOP annotations -->
-	<aop:aspectj-autoproxy/>
 
 	<tx:annotation-driven/>
 </beans>

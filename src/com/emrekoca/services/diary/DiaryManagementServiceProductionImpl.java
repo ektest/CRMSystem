@@ -2,17 +2,21 @@ package com.emrekoca.services.diary;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.emrekoca.dataaccess.ActionDao;
 import com.emrekoca.domain.Action;
 
 @Transactional
-public class DiaryManagementServiceProductionImpl implements DiaryManagementService{
+@Service
+public class DiaryManagementServiceProductionImpl implements DiaryManagementService {
 
+	@Autowired
 	private ActionDao dao;
 
-	public DiaryManagementServiceProductionImpl(ActionDao dao){
+	public DiaryManagementServiceProductionImpl(ActionDao dao) {
 		this.dao = dao;
 	}
 
