@@ -3,14 +3,12 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns:aop="http://www.springframework.org/schema/aop"
             xmlns:tx="http://www.springframework.org/schema/tx"
-            xmlns:context="http://www.springframework.org/schema/context"
             xsi:schemaLocation="
                 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                 http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
-                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 
 	<!--  Data source -->
@@ -21,22 +19,19 @@
 		<property name="password" value=""/>
 	</bean>
 
-	<!-- JPA configuration -->
-	<bean id="entityManagerFactory" 
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-            	<property name="showSql" value="true"/>
-            	<property name="generateDdl" value="true"/>
-            </bean>
-        </property>
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+	<!--  Templates -->
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 
 	<!--  DAOs -->
-	<bean id="customerDao" class="com.emrekoca.dataaccess.CustomerDAOJpaImpl"/>
+	<bean id="customerDao" class="com.emrekoca.dataaccess.CustomerDaoJdbcTemplateImpl" init-method="createTables">
+		<constructor-arg ref="template"/>
+	</bean>
 	
-	<bean id="actionDao" class="com.emrekoca.dataaccess.ActionDaoJpaImpl"/>
+	<bean id="actionDao" class="com.emrekoca.dataaccess.ActionDaoJdbcImpl" init-method="createTables">
+		<constructor-arg ref="template"/>
+	</bean>
 
 	<!--  Service Beans -->
 	<bean id="customerService" class="com.emrekoca.services.customers.CustomerManagementServiceProductionImpl">
@@ -54,7 +49,4 @@
 	<bean id="performanceTimingAdvice" class="com.emrekoca.advice.PerformTimingAdvice"/>
 
 	<tx:annotation-driven/>
-
-	<!-- This is needed if we don't use autowire for @PersistenceContext -->
-	<context:annotation-config/>
 </beans>
