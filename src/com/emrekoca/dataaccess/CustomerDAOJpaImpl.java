@@ -23,7 +23,7 @@ public class CustomerDAOJpaImpl implements CustomerDao {
 	public Customer getById(String customerId)
 			throws RecordNotFoundException {
 		try{
-		return (Customer) em.createQuery("select customer from Customer where customer.customerId=:customerId")
+		return (Customer) em.createQuery("select customer from Customer as customer where customer.customerId=:customerId")
 				.setParameter("customerId", customerId)
 				.getSingleResult();
 		}catch(NoResultException e){
@@ -60,7 +60,7 @@ public class CustomerDAOJpaImpl implements CustomerDao {
 	@Override
 	public Customer getFullCustomerDetail(String customerId) 
 			throws RecordNotFoundException {
-			return (Customer) em.createQuery("select customer from Customer as customer left join fecth customer.calls where customer.customerId=?")
+			return (Customer) em.createQuery("select customer from Customer as customer left join fetch customer.calls where customer.customerId=:customerId")
 					.setParameter("customerId", customerId)
 					.getSingleResult();
 	}
