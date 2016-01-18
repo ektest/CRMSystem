@@ -23,26 +23,32 @@
 	<classpathentry kind="lib" path="lib/junit-4.11.jar"/>
 	<classpathentry kind="lib" path="lib/log4j.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="lib/spring-aop-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-aspects-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-beans-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-context-support-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-core-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-expression-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-framework-bom-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-instrument-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-instrument-tomcat-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-jdbc-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-jms-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-messaging-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-orm-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-oxm-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-test-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-tx-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-web-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-webmvc-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-webmvc-portlet-4.0.2.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring-websocket-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aop-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aspects-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-data-redis-1.6.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-hateoas-0.16.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jdbc-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-orm-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-oxm-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-plugin-core-1.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-acl-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-cas-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-config-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-core-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-jwt-1.0.3.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-ldap-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-oauth2-2.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-openid-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-taglibs-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-security-web-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-test-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-tx-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-web-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-webmvc-4.1.6.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

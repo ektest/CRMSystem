@@ -9,10 +9,12 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.emrekoca.config.ApplicationConfig;
 import com.emrekoca.domain.Action;
 import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
@@ -21,8 +23,12 @@ import com.emrekoca.services.customers.CustomerManagementService;
 import com.emrekoca.services.customers.CustomerNotFoundException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "/daos.xml", "/services.xml", "/misc-beans.xml", "/datasource-test.xml" })
+/* For xml configuration */
+//@ContextConfiguration({ "/daos.xml", "/services.xml", "/misc-beans.xml", "/datasource-test.xml" })
+/* For JavaConfig configurations */
+@ContextConfiguration( classes = { ApplicationConfig.class } )
 @Transactional
+@ActiveProfiles("integration")
 public class CustomerManagmentIntegrationTest {
 	@Autowired
 	private CustomerManagementService custoemrService;
