@@ -13,7 +13,7 @@ import com.emrekoca.domain.Customer;
 import com.emrekoca.services.customers.CustomerManagementService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/application.xml")
+@ContextConfiguration({ "/daos.xml", "/services.xml", "/misc-beans.xml", "/datasource-test.xml" })
 @Transactional
 public class CustomerManagmentIntegrationTest {
 	@Autowired
