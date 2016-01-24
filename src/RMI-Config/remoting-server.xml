@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!-- SPRING RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
-	<!--
+	<!-- -->
 	<import resource="../application.xml" />
 	<bean id="crm-remoting" class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="service" ref="customerService" />
@@ -11,9 +11,21 @@
 		<property name="serviceInterface"
 			value="com.emrekoca.services.customers.CustomerManagementService" />
 	</bean>
-	-->
+	<bean id="callsServiceRemote"
+	      class="org.springframework.remoting.rmi.RmiServiceExporter">
+	      <property name="service" ref="callService"/>
+	      <property name="serviceName" value="CallsService"/>
+	      <property name="serviceInterface" value="com.emrekoca.services.calls.CallHandlingService"/>	      
+	</bean>
+	<bean id="diaryServiceRemote"
+	      class="org.springframework.remoting.rmi.RmiServiceExporter">
+	      <property name="service" ref="diaryService"/>
+	      <property name="serviceName" value="DiaryService"/>
+	      <property name="serviceInterface" value="com.emrekoca.services.diary.DiaryManagementService"/>	      
+	</bean>
+
 	<!-- HTTPINVOKER RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
-	<!-- -->
+	<!-- 
 	<bean id="/customerServiceRemote"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
 		<property name="service" ref="customerService" />
@@ -32,6 +44,7 @@
 		<property name="serviceInterface"
 			value="com.emrekoca.services.calls.CallHandlingService" />
 	</bean>
+	-->
 
 	<!-- Hessian (Burlap) RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
 	<!-- 
