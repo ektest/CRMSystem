@@ -22,7 +22,13 @@
 	</bean>
 	<bean id="/diaryServiceRemote"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
-		<property name="service" ref="diaryServiceRemote" />
+		<property name="service" ref="diaryService" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.diary.DiaryManagementService" />
+	</bean>
+	<bean id="/callServiceRemote"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="callService" />
 		<property name="serviceInterface"
 			value="com.emrekoca.services.calls.CallHandlingService" />
 	</bean>

@@ -20,10 +20,17 @@
 		<property name="serviceInterface"
 			value="com.emrekoca.services.customers.CustomerManagementService" />
 	</bean>
-	<bean id="diaryServiceRemote"
+	<bean id="diaryService"
 		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
 		<property name="serviceUrl"
 			value="http://localhost:8080/mywebapp/remote/diaryServiceRemote" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.diary.DiaryManagementService" />
+	</bean>
+	<bean id="callService"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/mywebapp/remote/callServiceRemote" />
 		<property name="serviceInterface"
 			value="com.emrekoca.services.calls.CallHandlingService" />
 	</bean>
