@@ -9,13 +9,11 @@
 		<property name="serviceInterface"
 			value="com.emrekoca.services.customers.CustomerManagementService" />
 	</bean>
-    
     <bean id="callService" 
 		  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="rmi://localhost/CallsService"/>
 		<property name="serviceInterface" value="com.emrekoca.services.calls.CallHandlingService"/>  
     </bean>
-    
 	<bean id="diaryService" 
 		  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="rmi://localhost/DiaryService"/>
