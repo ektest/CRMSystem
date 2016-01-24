@@ -20,6 +20,13 @@
 		<property name="serviceInterface"
 			value="com.emrekoca.services.customers.CustomerManagementService" />
 	</bean>
+	<bean id="diaryServiceRemote"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/mywebapp/remote/diaryServiceRemote" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.calls.CallHandlingService" />
+	</bean>
 	
 	<!-- Hessian RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
 	<!-- 
