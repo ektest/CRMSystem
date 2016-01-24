@@ -1,5 +1,6 @@
 package com.emrekoca.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,11 @@ import javax.persistence.OneToMany;
  * modify this class!
  *
  * @author Emre Koca
+ * 
+ * implements Serializable because of RMI
  */
 @Entity
-public class Customer 
+public class Customer implements Serializable
 {
 	/**
 	 * A simple unique value for the customer - note this is determined
