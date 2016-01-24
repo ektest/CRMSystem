@@ -6,6 +6,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class RmiServer {
 
+	/*
+	 * We don't need this for HTTPInvoker implementation!
+	 * This is server class for Spring RMI implementation!
+	 */
 	public static void main(String[] args) 
 	{
 		ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("/RMI-Config/remoting-server.xml");

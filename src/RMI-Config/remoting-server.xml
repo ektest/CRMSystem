@@ -2,14 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<import resource="../application.xml" />
 	<!-- SPRING RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!--
+	<import resource="../application.xml" />
 	<bean id="crm-remoting" class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<property name="service" ref="customerService" />
 		<property name="serviceName" value="CustomerService" />
 		<property name="serviceInterface"
 			value="com.emrekoca.services.customers.CustomerManagementService" />
 	</bean>
+	-->
+	<!-- HTTPINVOKER RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!-- -->
+	<bean id="/customerServiceRemote"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="customerService" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.customers.CustomerManagementService" />
+	</bean>
 
+	<!-- Hessian (Burlap) RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!-- 
+	<bean id="/customerServiceRemote"
+		class="org.springframework.remoting.caucho.HessianServiceExporter">
+		<property name="service" ref="customerService" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.customers.CustomerManagementService" />
+	</bean>
+	-->
 </beans>

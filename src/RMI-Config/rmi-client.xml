@@ -2,12 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- SPRING RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!--
+	<bean id="customerService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		<property name="serviceUrl" value="rmi://localhost/CustomerService" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.customers.CustomerManagementService" />
+	</bean>
+	-->
 
-	<bean id="customerService" 
-		  class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-		  
-		<property name="serviceUrl" value="rmi://localhost/CustomerService"/>
-		<property name="serviceInterface" value="com.emrekoca.services.customers.CustomerManagementService"/>  
-    </bean>
+	<!-- HTTPINVOKER RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!-- -->
+	<bean id="customerService"
+		class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+		<property name="serviceUrl"
+			value="http://localhost:8080/mywebapp/remote/customerServiceRemote" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.customers.CustomerManagementService" />
+	</bean>
+	
+	<!-- Hessian RMI EXAMPLE INSTEAD OF REST/SOAP Web Services -->
+	<!-- 
+	<bean id="customerService"
+		class="org.springframework.remoting.caucho.HessianServiceExporter">
+		<property name="serviceUrl"
+			value="http://localhost:8080/mywebapp/remote/customerServiceRemote" />
+		<property name="serviceInterface"
+			value="com.emrekoca.services.customers.CustomerManagementService" />
+	</bean>
+	-->
 
 </beans>

@@ -18,4 +18,9 @@
 		<welcome-file>all-customers.html</welcome-file>
 	</welcome-file-list>
 
+	<!-- This is for HTTPINVOKER and other RMI implemantations -->
+	<servlet-mapping>
+		<servlet-name>Dispatcher</servlet-name>
+		<url-pattern>/remote/*</url-pattern>
+	</servlet-mapping>
 </web-app>

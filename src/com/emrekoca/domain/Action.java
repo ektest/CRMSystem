@@ -1,5 +1,6 @@
 package com.emrekoca.domain;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
@@ -11,9 +12,11 @@ import javax.persistence.Id;
  * Represents the details of an action to be carried out.
  *
  * @author Emre Koca
+ * 
+ * implements Serializable because of RMI
  */
 @Entity
-public class Action 
+public class Action implements Serializable
 {
 	/**
 	 * Some kind of neutral key

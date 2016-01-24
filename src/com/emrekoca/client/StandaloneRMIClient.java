@@ -23,7 +23,7 @@ public class StandaloneRMIClient {
 		}
 
 		try {
-			Customer fullCustomer = service.getFullCustomerDetail("khugjgjkgjkhg");
+			Customer fullCustomer = service.getFullCustomerDetail("v1vbrfbvrjthe9phq02rcfcluf");
 			System.out.println(fullCustomer.getCalls().size() + " calls");
 		} catch (CustomerNotFoundException e) {
 			System.out.println("Customer doesn't exisit");

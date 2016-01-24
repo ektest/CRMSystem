@@ -1,5 +1,6 @@
 package com.emrekoca.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,10 +18,11 @@ import javax.persistence.Table;
  * 
  * @author Emre Koca
  *
+ * implements Serializable because of RMI
  */
 @Entity
 @Table(name="TBL_CALL")
-public class Call 
+public class Call implements Serializable
 {
 	/**
 	 * database neutral id: used for JPA, ignore until then
