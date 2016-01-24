@@ -131,7 +131,7 @@ public class ApplicationConfig {
 	public DataSource dataSourceTesting() {
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName("org.hsqldb.jdbcDriver");
-		ds.setUrl("jdbc:hsqldb:file:databaseTESTING.dat;shutdown=true");
+		ds.setUrl("jdbc:hsqldb:file:databaseTEST.dat;shutdown=true");
 		ds.setUsername("sa");
 		ds.setPassword("");
 		return ds;

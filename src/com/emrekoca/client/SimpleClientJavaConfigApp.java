@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.AbstractEnvironment;
 
 import com.emrekoca.config.ApplicationConfig;
@@ -26,17 +25,11 @@ public class SimpleClientJavaConfigApp {
 		try {
 			System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "production");
 			container = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-			// CustomerManagementService customerService =
-			// container.getBean("customerService",
-			// CustomerManagementService.class);
-			// Another way to wire bean if there is only one configuration of
-			// that class in application.xmll
-			// DiaryManagementService diaryService =
-			// container.getBean(DiaryManagementService.class);
 			CallHandlingService callService = container.getBean(CallHandlingService.class);
 			CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
 			String customerID = new BigInteger(130, new SecureRandom()).toString(32);
-			customerService.newCustomer(new Customer(customerID, "Apple", "test@test.com", "1234567890", "hello world"));
+			customerService
+					.newCustomer(new Customer(customerID, "Apple", "test@test.com", "1234567890", "hello world"));
 			Action action1 = new Action("Call back me!", new GregorianCalendar(2016, 0, 0), customerID);
 			Action action2 = new Action("I hate you!", new GregorianCalendar(2018, 0, 0), customerID);
 			List<Action> list = new ArrayList<Action>();
@@ -52,10 +45,9 @@ public class SimpleClientJavaConfigApp {
 			for (Action action : diaryService.getAllIncompleteActions(customerID)) {
 				System.out.println(action);
 			}
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
-		finally {
+		} finally {
 			container.close();
 		}
 	}

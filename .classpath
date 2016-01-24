@@ -50,5 +50,15 @@
 	<classpathentry kind="lib" path="lib/spring-tx-4.1.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-web-4.1.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-webmvc-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/hessian-4.0.37.jar"/>
+	<classpathentry kind="lib" path="lib/javax.servlet-api.jar"/>
+	<classpathentry kind="lib" path="lib/jstl.jar"/>
+	<classpathentry kind="lib" path="lib/spring-instrument-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-instrument-tomcat-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jms-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-messaging-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-webmvc-portlet-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-websocket-4.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/standard.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
