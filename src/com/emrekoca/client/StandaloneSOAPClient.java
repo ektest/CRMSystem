@@ -16,11 +16,11 @@ import com.emrekoca.services.customers.CustomerManagementService;
 import com.emrekoca.services.customers.CustomerNotFoundException;
 import com.emrekoca.services.diary.DiaryManagementService;
 
-public class StandaloneRMIClient {
+public class StandaloneSOAPClient {
 
 	public static void main(String[] args) {
 		// Access the remote Customer Management Service
-		ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("RMI-Config/rmi-client.xml");
+		ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("rmi-client.xml");
 
 		try {
 			CustomerManagementService service = container.getBean(CustomerManagementService.class);

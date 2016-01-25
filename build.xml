@@ -93,7 +93,7 @@
 		<delete dir="${gen.temp.dir}" />
 		<mkdir dir="${gen.temp.dir}" />
 		<!-- Cybersource -->
-		<java dir="${gen.temp.dir}" classname="org.apache.axis.wsdl.WSDL2Java" fork="true" args="-p com.emrekoca.generated.wsdl http://localhost:8080/emre/koca/employeeservice?wsdl">
+		<java dir="${gen.temp.dir}" classname="org.apache.axis.wsdl.WSDL2Java" fork="true" args="-p com.emrekoca.ant.generated.wsdl http://localhost:8080/customerService?wsdl">
 			<classpath>
 				<path refid="lib.classpath" />
 			</classpath>
