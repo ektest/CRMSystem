@@ -1,20 +1,12 @@
 package com.emrekoca.client;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.emrekoca.domain.Action;
-import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
-import com.emrekoca.services.calls.CallHandlingService;
 import com.emrekoca.services.customers.CustomerManagementService;
 import com.emrekoca.services.customers.CustomerNotFoundException;
-import com.emrekoca.services.diary.DiaryManagementService;
 
 public class StandaloneRMIClient {
 
@@ -32,12 +24,12 @@ public class StandaloneRMIClient {
 			}
 
 			try {
-				Customer fullCustomer = service.getFullCustomerDetail("v1vbrfbvrjthe9phq02rcfcluf");
+				Customer fullCustomer = service.getFullCustomerDetail("8lcoig4pib1ab007jf2d3t8dah");
 				System.out.println(fullCustomer.getCalls().size() + " calls");
 			} catch (CustomerNotFoundException e) {
 				System.out.println("Customer doesn't exisit");
 			}
-
+			/*
 			// Second part!
 			CallHandlingService callService = container.getBean(CallHandlingService.class);
 			CustomerManagementService customerService = container.getBean(CustomerManagementService.class);
@@ -59,6 +51,7 @@ public class StandaloneRMIClient {
 			for (Action action : diaryService.getAllIncompleteActions(customerID)) {
 				System.out.println(action);
 			}
+			*/
 		} finally {
 			container.close();
 		}

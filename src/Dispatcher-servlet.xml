@@ -18,9 +18,9 @@
 	<!--  also, we need to autowire the controllers -->
 	<context:component-scan base-package="com.emrekoca.controllers"/>
 
-	<!-- Spring JAVA-WS -->
-	<import resource="/remoting-server.xml"/>
-	<!-- add in a remoting layer to use HTTPINVOKER -->
+	<!-- Spring JAVA-WS and SOAP-->
+	<import resource="remoting-server.xml"/>
+	<!-- add in a remoting layer to use ONLY HTTPINVOKER -->
 	<!-- 
 	<import resource="/RMI-Config/remoting-server.xml"/>
 	-->

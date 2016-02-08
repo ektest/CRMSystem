@@ -6,9 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
 import com.emrekoca.domain.Call;
 import com.emrekoca.domain.Customer;
 
+@Repository
 public class CustomerDAOJpaImpl implements CustomerDao {
 
 	@PersistenceContext
