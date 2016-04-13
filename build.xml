@@ -1,0 +1,106 @@
+<project name="VPPBuild" default="BuildAll">
+	<property file="${basedir}/build.properties" />
+	<property name="bin" value="./bin" />
+	<property name="lib" value="./lib" />
+	<property name="src" value="./src" />
+	<property name="dist" value="./dist" />
+	<property name="gen.temp.dir" location="${temp.dir}" />
+
+	<property name="warfile" value="${dist}/mywebapp.war" />
+	<property name="html" value="./web" />
+
+	<property name="tomcat.webapps.dir" value="/Users/ekoca/tomcat-v9/webapps" />
+
+	<path id="my.classpath">
+		<pathelement path="${java.class.path}" />
+		<pathelement location="${bin}" />
+
+		<fileset dir="${lib}">
+			<include name="*.jar" />
+		</fileset>
+
+	</path>
+
+	<target name="BuildAll" depends="clean, prep, compile, war, deploy" description="Complete rebuild.">
+		<echo message="Build complete." />
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin}" />
+		<delete dir="${dist}" />
+		<delete dir="${gen.temp.dir}" />
+	</target>
+
+	<target name="prep">
+		<mkdir dir="${bin}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="compile" description="Compile all Java classes" depends="prep">
+
+		<javac srcdir="${src}" destdir="${bin}" debug="true" encoding="ISO-8859-1">
+			<classpath refid="my.classpath" />
+		</javac>
+
+		<!-- pick up the persistence.xml file and get it under the classes directory -->
+		<copy todir="${bin}">
+			<fileset dir="${src}">
+				<include name="**/*.xml" />
+				<include name="*.properties" />
+			</fileset>
+		</copy>
+
+		<echo message="Compiled." />
+	</target>
+
+	<target name="war" depends="compile" description="Build WAR file.">
+		<delete file="${warfile}" />
+
+		<war destfile="${warfile}" webxml="web.xml">
+			<classes dir="${bin}" />
+			<lib dir="${lib}">
+				<include name="**/*.jar" />
+				<exclude name="servlet-api.jar" />
+			</lib>
+
+			<webinf dir=".">
+				<filename name="*.*" />
+			</webinf>
+
+			<!-- added support for RMI -->
+			<zipfileset dir="${src}/RMI-Config"
+				includes="**/*.xml" prefix="WEB-INF/RMI-Config"/>
+
+			<!-- added for spring-mvc -->
+			<webinf dir="${src}">
+				<filename name="*.xml" />
+			</webinf>
+
+			<fileset dir="${html}" />
+			<!-- html/jsp files -->
+		</war>
+	</target>
+
+	<target name="deploy" depends="war" description="Deploy web application.">
+		<copy file="${warfile}" todir="${tomcat.webapps.dir}" />
+	</target>
+
+	<!-- added support for WSDL to generate classes -->
+	<path id="lib.classpath">
+		<fileset dir="${lib}" includes="**/*.jar" />
+	</path>
+	<target name="gen-source">
+		<delete dir="${gen.temp.dir}" />
+		<mkdir dir="${gen.temp.dir}" />
+		<!-- Cybersource -->
+		<java dir="${gen.temp.dir}" classname="org.apache.axis.wsdl.WSDL2Java" fork="true" args="-p com.emrekoca.ant.generated.wsdl http://localhost:8080/customerService?wsdl">
+			<classpath>
+				<path refid="lib.classpath" />
+			</classpath>
+		</java>
+		<copy todir="${src}" overwrite="true">
+			<fileset dir="${gen.temp.dir}" includes="**/*.java" />
+		</copy>
+	</target>
+
+</project>

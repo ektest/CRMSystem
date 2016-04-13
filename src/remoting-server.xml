@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- uncomment this if you're going to use stand alone client instead tomcat -->
+	<!-- 
+	<import resource="/application.xml" />
+	-->
+	<!-- Spring JAVA-WS works fine for Stand alone applications (Console apps) -->
+	<bean class="org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter"/>
+
+	<bean id="customerEndpoint" class="com.emrekoca.webservices.CustomerEndpoint">
+		<property name="customerService" ref="customerService"></property>
+	</bean>
+</beans>

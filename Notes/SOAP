@@ -1,0 +1,7 @@
+WSDL: WebServices Description Language which is specification of web service. 
+Contains all operations and its requirements.
+
+JAX-WS: Java API for SOAP Webservices
+
+Importing WSDL classes from WSDL by a wsimport tool:
+wsimport -keep -verbose -s ./src/ -d ./bin/ http://localhost:8080/WEBSERVICE/URL?wsdl
